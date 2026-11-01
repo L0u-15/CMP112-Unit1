@@ -133,6 +133,7 @@ GameObject:
   - component: {fileID: 221990797}
   - component: {fileID: 221990801}
   - component: {fileID: 221990803}
+  - component: {fileID: 221990804}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -277,6 +278,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 996fb45361303c241b93a3f8af5b6a54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+--- !u!114 &221990804
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 221990795}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1951574e8c07216429582190a0160904, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NewMonoBehaviourScript
+  moveSpeed: 7
+  groundDrag: 5
+  playerHeight: 2
+  whatIsGround:
+    serializedVersion: 2
+    m_Bits: 1024
+  orientation: {fileID: 1528095972}
 --- !u!1 &227089579
 GameObject:
   m_ObjectHideFlags: 0
@@ -592,7 +612,7 @@ GameObject:
   - component: {fileID: 1717257275}
   - component: {fileID: 1717257274}
   - component: {fileID: 1717257273}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Plane
   m_TagString: Untagged
   m_Icon: {fileID: 0}
