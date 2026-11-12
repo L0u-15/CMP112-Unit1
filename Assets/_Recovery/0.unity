@@ -130,9 +130,9 @@ GameObject:
   - component: {fileID: 221990800}
   - component: {fileID: 221990799}
   - component: {fileID: 221990798}
-  - component: {fileID: 221990797}
   - component: {fileID: 221990801}
   - component: {fileID: 221990805}
+  - component: {fileID: 221990806}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -140,29 +140,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!136 &221990797
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 221990795}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 0
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &221990798
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -229,7 +206,7 @@ Transform:
   m_GameObject: {fileID: 221990795}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.03, y: 1.27, z: 1.05}
+  m_LocalPosition: {x: 1.03, y: 0.815, z: 1.05}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -263,7 +240,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 1
-  m_Constraints: 90
+  m_Constraints: 112
   m_CollisionDetection: 1
 --- !u!114 &221990805
 MonoBehaviour:
@@ -279,7 +256,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMovementAdvanced
   walkSpeed: 7
   sprintSpeed: 14
-  groundDrag: 5
+  groundDrag: 2
   jumpForce: 10
   jumpCooldown: 0.25
   airMultiplier: 0.4
@@ -295,6 +272,31 @@ MonoBehaviour:
   maxSlopeAngle: 40
   Orientation: {fileID: 1528095972}
   state: 0
+--- !u!143 &221990806
+CharacterController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 221990795}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 0
+  serializedVersion: 3
+  m_Height: 2
+  m_Radius: 0.5
+  m_SlopeLimit: 45
+  m_StepOffset: 0.3
+  m_SkinWidth: 0.08
+  m_MinMoveDistance: 0.001
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &227089579
 GameObject:
   m_ObjectHideFlags: 0
@@ -353,7 +355,6 @@ GameObject:
   - component: {fileID: 243982214}
   - component: {fileID: 243982213}
   - component: {fileID: 243982212}
-  - component: {fileID: 243982215}
   m_Layer: 0
   m_Name: PlayerObj
   m_TagString: Untagged
@@ -456,36 +457,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 243982210}
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &243982215
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 243982210}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1951574e8c07216429582190a0160904, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::playerMovement
-  walkSpeed: 7
-  sprintSpeed: 14
-  groundDrag: 7
-  jumpForce: 10
-  jumpCooldown: 0.25
-  airMultiplier: 0.4
-  crouchSpeed: 3.5
-  crouchYScale: 0.5
-  jumpKey: 32
-  sprintKey: 304
-  crouchKey: 306
-  playerHeight: 2
-  whatIsGround:
-    serializedVersion: 2
-    m_Bits: 1024
-  maxSlopeAngle: 40
-  Orientation: {fileID: 1528095972}
-  state: 0
 --- !u!1 &563734551
 GameObject:
   m_ObjectHideFlags: 0
@@ -641,7 +612,7 @@ GameObject:
   - component: {fileID: 1717257275}
   - component: {fileID: 1717257274}
   - component: {fileID: 1717257273}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Plane
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1032,7 +1003,7 @@ Transform:
   m_GameObject: {fileID: 1956006379}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0.95997125, z: -0, w: -0.28009874}
-  m_LocalPosition: {x: -0.422, y: 0.069, z: -0.201}
+  m_LocalPosition: {x: -0.422, y: -0.38599998, z: -0.201}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

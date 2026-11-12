@@ -180,6 +180,7 @@ public class playerMovement : MonoBehaviour
         rb.useGravity = !OnSlope();
     }
 
+
     private void SpeedControl()
     {
         // limiting speed on slope
