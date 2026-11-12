@@ -132,8 +132,7 @@ GameObject:
   - component: {fileID: 221990798}
   - component: {fileID: 221990797}
   - component: {fileID: 221990801}
-  - component: {fileID: 221990803}
-  - component: {fileID: 221990804}
+  - component: {fileID: 221990805}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -158,7 +157,7 @@ CapsuleCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Radius: 0.5
   m_Height: 2
@@ -264,21 +263,9 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 1
-  m_Constraints: 112
+  m_Constraints: 90
   m_CollisionDetection: 1
---- !u!114 &221990803
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 221990795}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 996fb45361303c241b93a3f8af5b6a54, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: '::'
---- !u!114 &221990804
+--- !u!114 &221990805
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -289,14 +276,25 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1951574e8c07216429582190a0160904, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::NewMonoBehaviourScript
-  moveSpeed: 7
-  groundDrag: 0
-  playerHeight: 0
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerMovementAdvanced
+  walkSpeed: 7
+  sprintSpeed: 14
+  groundDrag: 5
+  jumpForce: 10
+  jumpCooldown: 0.25
+  airMultiplier: 0.4
+  crouchSpeed: 3.5
+  crouchYScale: 0.5
+  jumpKey: 32
+  sprintKey: 304
+  crouchKey: 306
+  playerHeight: 2
   whatIsGround:
     serializedVersion: 2
-    m_Bits: 0
-  orientation: {fileID: 1528095972}
+    m_Bits: 1024
+  maxSlopeAngle: 40
+  Orientation: {fileID: 1528095972}
+  state: 0
 --- !u!1 &227089579
 GameObject:
   m_ObjectHideFlags: 0
@@ -326,7 +324,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac76de178538b044a913e54cf7419bad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::cameraPosition
-  cameraPos: {fileID: 1908829659}
+  cameraPosition: {fileID: 1908829659}
 --- !u!4 &227089581
 Transform:
   m_ObjectHideFlags: 0
@@ -355,6 +353,7 @@ GameObject:
   - component: {fileID: 243982214}
   - component: {fileID: 243982213}
   - component: {fileID: 243982212}
+  - component: {fileID: 243982215}
   m_Layer: 0
   m_Name: PlayerObj
   m_TagString: Untagged
@@ -371,7 +370,7 @@ Transform:
   m_GameObject: {fileID: 243982210}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.006, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -457,6 +456,36 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 243982210}
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &243982215
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 243982210}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1951574e8c07216429582190a0160904, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::playerMovement
+  walkSpeed: 7
+  sprintSpeed: 14
+  groundDrag: 7
+  jumpForce: 10
+  jumpCooldown: 0.25
+  airMultiplier: 0.4
+  crouchSpeed: 3.5
+  crouchYScale: 0.5
+  jumpKey: 32
+  sprintKey: 304
+  crouchKey: 306
+  playerHeight: 2
+  whatIsGround:
+    serializedVersion: 2
+    m_Bits: 1024
+  maxSlopeAngle: 40
+  Orientation: {fileID: 1528095972}
+  state: 0
 --- !u!1 &563734551
 GameObject:
   m_ObjectHideFlags: 0
