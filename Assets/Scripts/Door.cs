@@ -12,7 +12,7 @@ public class Door : MonoBehaviour
     private Animator animator;
     private List<PressurePlate> currentSwitchesOpen = new();
     public int CurrentSwitchesOpen => currentSwitchesOpen.Count;
-    private void start()
+    private void Start()
     {
         IsDoorOpen = false;
         animator.Play("DoorClose");

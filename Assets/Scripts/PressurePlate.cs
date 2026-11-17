@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class PressurePlate : MonoBehaviour
@@ -6,15 +7,33 @@ public class PressurePlate : MonoBehaviour
     private Door currentDoor;
     [SerializeField]
     private Animator animator;
+    private int count = 0;
+    
+    private void Start()
+    {
+        animator.Play("pressureplateup");
+        count = 0;
+    }
     
     private void OnTriggerEnter(Collider other)
     {
-        currentDoor.AddPressurePlate(this);
-        animator.Play("pressureplatedown");
+        if (other.CompareTag("Player"))
+        { 
+            currentDoor.AddPressurePlate(this);
+            animator.Play("pressureplatedown");
+            count = count + 1;
+        }
     }
     private void OnTriggerExit(Collider other)
     {
-        currentDoor.RemovePressurePlate(this);
-        animator.Play("pressureplateup");
+        if (other.CompareTag("Player"))
+        {
+            count = count - 1;
+            if (count == 0)
+            {
+                currentDoor.RemovePressurePlate(this);
+                animator.Play("pressureplateup");
+            }
+        }
     }
 }
